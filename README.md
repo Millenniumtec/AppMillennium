@@ -1,2 +1,0 @@
-# AppMillennium
-Aplicativo em Desenvolvimento
