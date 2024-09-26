@@ -44,6 +44,7 @@ backgroundImage.onload = function() {
 }
 
 
+globalThis.volume = 0.2;
 
 var maleCharacterImage = 'images/lelekopixel.png';
 var femaleCharacterImage = 'images/lelekapixel.png';
@@ -156,9 +157,15 @@ function update() {
             platform.y -= initialVelocityY; //slide platform down
         }
         if (detectCollision(doodler, platform) && velocityY >= 0) {
+            const volumeControl = document.getElementById('volume');
+        volumeControl.addEventListener('input', (event) => {
+        globalThis.volume = event.target.value;
+        backgroundMusic.volume = volume;
+        jumpSoundInstance = volume;   
+    });
             velocityY = initialVelocityY; //jump
             let jumpSoundInstance = new Audio('sounds/jumpSound.mp3');
-            jumpSoundInstance.volume = 0.2;
+            jumpSoundInstance.volume = globalThis.volume;
             jumpSoundInstance.play();
         }
         context.drawImage(platform.img, platform.x, platform.y, platform.width, platform.height);

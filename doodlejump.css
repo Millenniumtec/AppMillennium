@@ -27,6 +27,15 @@ h2{
     font-family: 'Handjet', sans-serif;
 }
 
+#volume {
+    position: absolute;
+    top: 6%;
+    right: 46%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+}
+
 #board {
     background-image: url("./doodlejumpbg.png");
     border-radius: 20px;
